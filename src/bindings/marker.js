@@ -78,6 +78,10 @@
             createOptions: { name: 'flat', type: 'bool' },
             bindings: { name: 'flat', type: 'bool', vmToObj: { setter: 'setFlat' } }
         },
+        label: {
+            createOptions: 'label',
+            bindings: { name: 'label', vmToObj: { setter: 'setLabel' } }
+        },
         title: {
             createOptions: 'title',
             bindings: { name: 'title', vmToObj: { setter: 'setTitle' } }
