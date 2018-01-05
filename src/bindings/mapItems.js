@@ -28,10 +28,20 @@
                     break;
 
                 case 'deleted':
-                    itemSubscriptions = subscriptions.splice(difference.index, 1);
-                    itemSubscriptions[0].dispose();
+                    // Add this to list of objects to push, avoid mutating subscriptions while iterating over
+                    // differences
+                    removeObjects.push(subscriptions[difference.index]);
                     break;
             }
+        }
+
+        var removeObject;
+        var itemSubscriptionsIndex;
+        for (i=0; i < removeObjects.length; ++i) {
+            removeObject = removeObjects[i];
+            itemSubscriptionsIndex = subscriptions.indexOf(function(el) { return el === removeObject; });
+            itemSubscriptions = subscriptions.splice(itemSubscriptionsIndex, 1);
+            itemSubscriptions[0].dispose();
         }
 
         ko.utils.domData.set(element, __ko_gm_itemsKey, newItems.slice(0));
