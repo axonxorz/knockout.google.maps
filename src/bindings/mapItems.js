@@ -17,7 +17,8 @@
         var subscriptions = ko.utils.domData.get(element, __ko_gm_itemsSubscriptionsKey) || [];
 
         var itemSubscriptions,
-            differences = ko.utils.compareArrays(oldItems, newItems);
+            differences = ko.utils.compareArrays(oldItems, newItems),
+            removeObjects = [];
         for (var i = 0; i < differences.length; ++i) {
             var difference = differences[i];
             switch (difference.status) {
