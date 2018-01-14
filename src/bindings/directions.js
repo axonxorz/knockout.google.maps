@@ -52,7 +52,10 @@
             //markerOptions
             //panel
             //polylineOptions
-            //preserveViewport
+            preserveViewport: {
+                createOptions: { name: 'preserveViewport', type: 'bool' },
+                bindings: { name: 'preserveViewport', type: 'bool' }
+            },
             //routeIndex
             suppressBicyclingLayer: {
                 createOptions: { name: 'suppressBicyclingLayer', type: 'bool' },
